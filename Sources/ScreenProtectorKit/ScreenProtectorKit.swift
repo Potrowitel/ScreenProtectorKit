@@ -80,7 +80,8 @@ public class ScreenProtectorKit {
     //     screenProtectorKit.enabledBlurScreen()
     // }
     public func enabledBlurScreen(style: UIBlurEffect.Style = UIBlurEffect.Style.light) {
-        screenBlur = UIScreen.main.snapshotView(afterScreenUpdates: false)
+        let view = UIScreen.main.snapshotView(afterScreenUpdates: false)
+        screenBlur = UIView.init(frame: view.frame)
         let blurEffect = UIBlurEffect(style: style)
         let blurBackground = UIVisualEffectView(effect: blurEffect)
         screenBlur?.addSubview(blurBackground)
